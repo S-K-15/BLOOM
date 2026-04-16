@@ -1,0 +1,204 @@
+/* Import custom styles for authentic look */
+@import './styles/custom.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth scroll snapping for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbars globally */
+html, body, * {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar, 
+*::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* Additional comprehensive scrollbar hiding */
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Force hide all scrollbars with maximum specificity */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+div::-webkit-scrollbar,
+section::-webkit-scrollbar,
+main::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* Enhanced scroll snapping */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Ensure scroll snapping works properly */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+/* Additional scrollbar hiding for better compatibility */
+.scrollbar-hide::-webkit-scrollbar-track {
+  display: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar-corner {
+  display: none;
+}
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Typing.com inspired color scheme - Blue/White with Green accents */
+    --background: 0 0% 100%; /* Pure white background */
+    --foreground: 214 32% 17%; /* Dark blue-gray text */
+
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 214 32% 17%; /* Dark blue-gray text on cards */
+
+    --popover: 0 0% 100%; /* White popovers */
+    --popover-foreground: 214 32% 17%; /* Dark blue-gray text */
+
+    --primary: 214 100% 50%; /* Bright blue primary (like typing.com) */
+    --primary-foreground: 0 0% 100%; /* White text on blue */
+
+    --secondary: 214 20% 95%; /* Light blue-gray secondary */
+    --secondary-foreground: 214 32% 17%; /* Dark blue-gray text */
+
+    --muted: 214 20% 95%; /* Light blue-gray muted */
+    --muted-foreground: 214 20% 45%; /* Medium blue-gray muted text */
+
+    --accent: 142 76% 36%; /* Green accent (like typing.com progress) */
+    --accent-foreground: 0 0% 100%; /* White text on green */
+
+    --destructive: 0 84% 60%; /* Red for errors */
+    --destructive-foreground: 0 0% 100%; /* White text on red */
+
+    --border: 214 20% 90%; /* Light blue-gray borders */
+    --input: 214 20% 90%; /* Light blue-gray input borders */
+    --ring: 214 100% 50%; /* Blue focus ring */
+
+    --radius: 0.5rem;
+
+    /* Sidebar colors matching typing.com */
+    --sidebar-background: 214 20% 98%; /* Very light blue-gray */
+    --sidebar-foreground: 214 32% 17%; /* Dark blue-gray text */
+    --sidebar-primary: 214 100% 50%; /* Blue primary */
+    --sidebar-primary-foreground: 0 0% 100%; /* White text */
+    --sidebar-accent: 214 20% 95%; /* Light blue-gray accent */
+    --sidebar-accent-foreground: 214 32% 17%; /* Dark blue-gray text */
+    --sidebar-border: 214 20% 90%; /* Light blue-gray borders */
+    --sidebar-ring: 214 100% 50%; /* Blue focus ring */
+
+    /* Environmental Education specific colors */
+    --success: 142 76% 36%; /* Green for success/progress */
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 47%; /* Yellow for warnings */
+    --warning-foreground: 0 0% 0%;
+    --info: 214 100% 50%; /* Blue for info */
+    --info-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    /* Dark mode with typing.com inspired colors */
+    --background: 214 32% 8%; /* Very dark blue-gray */
+    --foreground: 214 20% 95%; /* Light blue-gray text */
+
+    --card: 214 32% 12%; /* Dark blue-gray cards */
+    --card-foreground: 214 20% 95%; /* Light blue-gray text on cards */
+
+    --popover: 214 32% 12%; /* Dark blue-gray popovers */
+    --popover-foreground: 214 20% 95%; /* Light blue-gray text */
+
+    --primary: 214 100% 60%; /* Brighter blue for dark mode */
+    --primary-foreground: 0 0% 100%; /* White text on blue */
+
+    --secondary: 214 20% 20%; /* Medium blue-gray secondary */
+    --secondary-foreground: 214 20% 95%; /* Light blue-gray text */
+
+    --muted: 214 20% 20%; /* Medium blue-gray muted */
+    --muted-foreground: 214 20% 65%; /* Medium blue-gray muted text */
+
+    --accent: 142 76% 45%; /* Brighter green for dark mode */
+    --accent-foreground: 0 0% 100%; /* White text on green */
+
+    --destructive: 0 84% 60%; /* Red for errors */
+    --destructive-foreground: 0 0% 100%; /* White text on red */
+
+    --border: 214 20% 25%; /* Medium blue-gray borders */
+    --input: 214 20% 25%; /* Medium blue-gray input borders */
+    --ring: 214 100% 60%; /* Brighter blue focus ring */
+
+    /* Dark mode sidebar colors */
+    --sidebar-background: 214 32% 10%; /* Dark blue-gray */
+    --sidebar-foreground: 214 20% 95%; /* Light blue-gray text */
+    --sidebar-primary: 214 100% 60%; /* Brighter blue primary */
+    --sidebar-primary-foreground: 0 0% 100%; /* White text */
+    --sidebar-accent: 214 20% 20%; /* Medium blue-gray accent */
+    --sidebar-accent-foreground: 214 20% 95%; /* Light blue-gray text */
+    --sidebar-border: 214 20% 25%; /* Medium blue-gray borders */
+    --sidebar-ring: 214 100% 60%; /* Brighter blue focus ring */
+
+    /* Environmental Education specific colors for dark mode */
+    --success: 142 76% 45%; /* Brighter green for dark mode */
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 55%; /* Brighter yellow for dark mode */
+    --warning-foreground: 0 0% 0%;
+    --info: 214 100% 60%; /* Brighter blue for dark mode */
+    --info-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
